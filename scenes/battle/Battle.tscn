@@ -728,6 +728,7 @@ texture = ExtResource("17_np1jk")
 flip_v = true
 
 [node name="Glossary Canvas" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="CardGlossary" parent="Glossary Canvas" instance=ExtResource("13_mwfol")]
 visible = false
