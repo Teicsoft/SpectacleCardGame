@@ -92,11 +92,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 319.0
 offset_top = 1084.0
-offset_right = 318.974
+offset_right = 319.0
 offset_bottom = 1084.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 0.999982)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
 layout_mode = 2

@@ -222,13 +222,22 @@ public partial class AudioEngine : Node
 			switch (file.Value)
 			{
 				case AudioType.Music:
-					_preLoadedMusic.Add(file.Key, audioStream);
+					if (!_preLoadedMusic.ContainsKey(file.Key))
+					{
+						_preLoadedMusic.Add(file.Key, audioStream);
+					}
 					break;
 				case AudioType.SoundFx:
-					_preLoadedSoundFx.Add(file.Key, audioStream);
+					if (!_preLoadedSoundFx.ContainsKey(file.Key))
+					{
+						_preLoadedSoundFx.Add(file.Key, audioStream);
+					}
 					break;
 				case AudioType.VoiceLine:
-					_preLoadedVoiceLines.Add(file.Key, audioStream);
+					if (!_preLoadedVoiceLines.ContainsKey(file.Key))
+					{
+						_preLoadedVoiceLines.Add(file.Key, audioStream);
+					}
 					break;
 			}
 		}

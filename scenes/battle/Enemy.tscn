@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://rocmwsrfn6p7"]
+[gd_scene load_steps=97 format=3 uid="uid://rocmwsrfn6p7"]
 
 [ext_resource type="Script" path="res://scripts/battle/target/Enemy.cs" id="1_nns8m"]
 [ext_resource type="Texture2D" uid="uid://dugrn574r1n0d" path="res://assets/sprites/Z/loser5.png" id="2_ggci3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://4k1okc7teid6" path="res://assets/images/ModifierIcons/Juggled.png" id="7_3j0ii"]
 [ext_resource type="Texture2D" uid="uid://b5inj50p30g3o" path="res://assets/sprites/Goon/Goon - template_0_Idle.png" id="8_1fa0j"]
 [ext_resource type="Texture2D" uid="uid://b43wuc42h6hqe" path="res://assets/sprites/Goon/Goon - template_1_Walk.png" id="9_x7m38"]
+[ext_resource type="Texture2D" uid="uid://di6jj3qkji1wr" path="res://assets/sprites/Emperor_Thumbs/Emperor_Thumb_Down.png" id="10_u42np"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q5jw"]
 atlas = ExtResource("8_1fa0j")
@@ -787,6 +788,41 @@ offset_bottom = 110.0
 theme = ExtResource("3_df0w2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mxw43")
 flat = true
+
+[node name="SelectedIndicator" type="ColorRect" parent="."]
+visible = false
+z_index = 15
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 57.0
+offset_top = 77.0
+offset_right = 97.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+scale = Vector2(0.19, 0.19)
+pivot_offset = Vector2(20, 20)
+color = Color(1, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="SelectedIndicator"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1153.47
+offset_top = -756.476
+offset_right = -1081.47
+offset_bottom = -684.476
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+scale = Vector2(4, 4)
+texture = ExtResource("10_u42np")
 
 [connection signal="timeout" from="HealthBar/CardPlayedTimer" to="." method="OnCardPlayedTimer"]
 [connection signal="timeout" from="JigglePhysicsTimer" to="." method="OnJigglePhysicsTimerTimeout"]

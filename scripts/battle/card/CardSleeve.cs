@@ -8,6 +8,7 @@ public partial class CardSleeve : Control {
     public Card Card { get; set; }
     public Button SelectButton;
     private TextureRect _art;
+    private Vector2 _currentViewportSize;
 
     //cache
     public Animation Animation { get; set; }
@@ -32,9 +33,20 @@ public partial class CardSleeve : Control {
             (Texture2D)GD.Load($"res://assets/images/Cards/cardbgs/{Card.CardType}.png");
 
         GetNode<Button>("SelectButton").TooltipText = Card.Lore;
+        
+        _currentViewportSize = GetViewport().GetVisibleRect().Size;
+        cardscaling();
     }
 
-    public override void _Process(double delta) { }
+    public override void _Process(double delta)
+    {
+        Vector2 newViewPortSize = GetViewport().GetVisibleRect().Size;
+        if (newViewPortSize != _currentViewportSize)
+        {
+            cardscaling();
+            _currentViewportSize = newViewPortSize;
+        }
+    }
 
     private void OnPress() { EmitSignal(SignalName.CardSelected, this); }
 
@@ -49,4 +61,19 @@ public partial class CardSleeve : Control {
     private void LoadSound() { Sound = (AudioStream)GD.Load(Card.SoundPath); }
 
     public override string ToString() { return $"CardSleve: " + Card.ToString(); }
+
+    private void cardscaling()
+    {
+        Vector2 originalViewportSize = new Vector2(1920, 1080);
+        Vector2 currentViewportSize = GetViewport().GetVisibleRect().Size;
+
+        float YScale = GetViewport().GetVisibleRect().Size.Y / originalViewportSize.Y;
+
+
+        Vector2 scaleFactor = new Vector2(
+            YScale, YScale
+        );
+        Scale = scaleFactor;
+    }
 }
+    

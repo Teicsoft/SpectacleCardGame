@@ -17,9 +17,11 @@ public partial class HUD : CanvasLayer
     public override void _Process(double delta)
     {
         // Calculate the scale factor based on the ratio of the current viewport size to the original viewport size
-        Vector2 scaleFactor = GetViewport().GetVisibleRect().Size / originalViewportSize;
+        float y=GetViewport().GetVisibleRect().Size.Y / originalViewportSize.Y;
+        Vector2 scaleFactor = new Vector2(y, y);
 
         // Update CanvasLayer scale to match the viewport size
         canvasLayerNode.Scale = scaleFactor;
-    }
 }
+
+    }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci05wo3p3muho"]
+[gd_scene load_steps=16 format=3 uid="uid://ci05wo3p3muho"]
 
 [ext_resource type="FontFile" uid="uid://cb6jcjbshfiq" path="res://assets/fonts/new_jersey/Jersey10-Regular.ttf" id="1_a082y"]
 [ext_resource type="Texture2D" uid="uid://fjpa0e8mdgvg" path="res://assets/ui/thicc_border_top.png" id="1_jv2p2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dji6dwqh11tuo" path="res://assets/ui/github-mark.png" id="9_srg7x"]
 [ext_resource type="Texture2D" uid="uid://c5w7bux5ksfwl" path="res://assets/ui/toggle_on.png" id="10_q1nov"]
 [ext_resource type="Texture2D" uid="uid://ikg1v46ltoap" path="res://assets/ui/toggle_off.png" id="11_mswe0"]
+[ext_resource type="Theme" uid="uid://hajaa20bfn8q" path="res://styles/Bigtext.tres" id="14_vouqn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6k2c"]
 bg_color = Color(0.701961, 0.219608, 0.192157, 1)
@@ -237,6 +238,27 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("9_srg7x")
 
+[node name="screensize" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 634.0
+offset_right = 578.0
+offset_bottom = 669.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("7_5wohl")
+
+[node name="Label" type="Label" parent="Control/screensize"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.5
+offset_right = 180.0
+offset_bottom = 43.5
+scale = Vector2(0.486203, 0.486203)
+theme = ExtResource("14_vouqn")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.780392, 0.862745, 0.815686, 1)
+text = "Screen Mode"
+
 [connection signal="pressed" from="Control/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/Credits Button" to="." method="_on_credits_button_pressed"]
 [connection signal="value_changed" from="Control/Music Sliider" to="." method="_on_music_sliider_value_changed"]
@@ -244,3 +266,4 @@ texture_normal = ExtResource("9_srg7x")
 [connection signal="toggled" from="Control/Music Mute Button" to="." method="_on_music_mute_button_toggled"]
 [connection signal="toggled" from="Control/SFX Mute Button" to="." method="_on_sfx_mute_button_toggled"]
 [connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/screensize" to="." method="_on_screensize_pressed"]
